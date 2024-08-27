@@ -14,18 +14,21 @@ const getInvitados = (req, res) =>{
 };
 
 const insertInvitados = (req, res) =>{
+   
     const {
-        oNombre,
-        oTelefono,
-        oCorreo
+        nombre,
+        telefono,
+        correo
     } = req.body;
+
+    console.log(nombre,telefono,correo)
 
     const query = `CALL SP_InsertInvitados(?,?,?);`;
     oMyDBConnection.query(query, 
         [
-            oNombre,
-            oTelefono,
-            oCorreo
+            nombre,
+            telefono,
+            correo
         ],
         (err, rows, fields) => {
             if (!err) {
